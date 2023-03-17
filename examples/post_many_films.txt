@@ -1,0 +1,57 @@
+Post 2 films
+
+request:
+[   
+    {
+        "name" : "Ender's Game",
+        "year": "2013",
+        "genres": "2,6"
+    },
+    {
+        "name" : "A Beautiful Mind",
+        "year" : "2001",
+        "genres": "1,5"
+    }
+]
+
+response:
+{
+    "film_1": [
+        {
+            "id": "5",
+            "name": "Ender's Game",
+            "year": 2013
+        }
+    ],
+    "film1_genre1": [
+        {
+            "film_id": "5",
+            "genres_id": 2
+        }
+    ],
+    "film1_genre2": [
+        {
+            "film_id": "5",
+            "genres_id": 6
+        }
+    ],
+    "film_2": [
+        {
+            "id": "6",
+            "name": "A Beautiful Mind",
+            "year": 2001
+        }
+    ],
+    "film2_genre1": [
+        {
+            "film_id": "6",
+            "genres_id": 1
+        }
+    ],
+    "film2_genre2": [
+        {
+            "film_id": "6",
+            "genres_id": 5
+        }
+    ]
+}

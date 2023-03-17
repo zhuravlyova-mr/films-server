@@ -1,0 +1,20 @@
+Get genres with id <= 3
+
+request:
+localhost:5000/genres?id<=3
+
+response:
+[
+    {
+        "id": 1,
+        "name": "драма"
+    },
+    {
+        "id": 2,
+        "name": "фэнтези"
+    },
+    {
+        "id": 3,
+        "name": "комедия"
+    }
+]

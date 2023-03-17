@@ -1,0 +1,19 @@
+Update {7, триллер} with {7, ужасы}
+
+request:
+{
+    "id" : "3",
+    "name": "The Ghost",
+    "year": "1990",
+    "genres": "4,5,6,7" 
+}
+
+response:
+{
+    "genre": [
+        {
+            "id": 7,
+            "name": "ужасы"
+        }
+    ]
+}

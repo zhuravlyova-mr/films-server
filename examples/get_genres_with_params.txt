@@ -1,0 +1,16 @@
+Get genres where id >= 1 and name contains 'драма'
+
+request:
+localhost:5000/genres?id>=1&name like=%драма%
+
+response:
+[
+    {
+        "id": 1,
+        "name": "драма"
+    },
+    {
+        "id": 5,
+        "name": "мелодрама"
+    }
+]

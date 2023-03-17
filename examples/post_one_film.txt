@@ -1,0 +1,23 @@
+request:
+{
+    "name": "Rain Man",
+    "year": "1988",
+    "genres": "1"
+}
+
+response:
+{
+    "film_1": [
+        {
+            "id": "8",
+            "name": "Rain Man",
+            "year": 1988
+        }
+    ],
+    "film1_genre1": [
+        {
+            "film_id": "8",
+            "genres_id": 1
+        }
+    ]
+}

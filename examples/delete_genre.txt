@@ -1,0 +1,31 @@
+Delete {10, трагикомедия}
+
+1. request:
+{
+    "name" : "трагикомедия"
+}
+
+response:
+{
+    "removed_genre": [
+        {
+            "id": 10,
+            "name": "трагикомедия"
+        }
+    ]
+}
+
+2. request:
+{
+    "id" : "9"
+}
+
+response:
+{
+    "removed_genre": [
+        {
+            "id": 9,
+            "name": "исторический"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+Update {3, Ghost, 1990, [1,2,5,7]} with {3, The Ghost, 1990, [4,5,6,7]
+
+request:
+{
+    "id" : "3",
+    "name": "The Ghost",
+    "year": "1990",
+    "genres": "4,5,6,7" 
+}
+
+response:
+{
+    "film": [
+        {
+            "id": "3",
+            "name": "The Ghost",
+            "year": 1990
+        }
+    ],
+    "genre_1": [
+        {
+            "film_id": "3",
+            "genres_id": 4
+        }
+    ],
+    "genre_3": [
+        {
+            "film_id": "3",
+            "genres_id": 6
+        }
+    ]
+}

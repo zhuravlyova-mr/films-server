@@ -1,0 +1,43 @@
+Get all films:
+
+request:
+localhost:5000/films
+
+response:
+[
+    {
+        "id": "1",
+        "name": "The Green Mile",
+        "year": 1999
+    },
+    {
+        "id": "2",
+        "name": "Kill Bill",
+        "year": 2003
+    },
+    {
+        "id": "3",
+        "name": "Ghost",
+        "year": 1990
+    },
+    {
+        "id": "4",
+        "name": "The Shack",
+        "year": 2017
+    },
+    {
+        "id": "5",
+        "name": "Ender's Game",
+        "year": 2013
+    },
+    {
+        "id": "6",
+        "name": "A Beautiful Mind",
+        "year": 2001
+    },
+    {
+        "id": "7",
+        "name": "Rain Man",
+        "year": 1988
+    }
+]

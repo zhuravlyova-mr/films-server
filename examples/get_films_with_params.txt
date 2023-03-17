@@ -1,0 +1,18 @@
+Get films where id >= 1 and name contains 'il'
+
+request:
+localhost:5000/films?id>=1&name like=%il%
+
+response:
+[
+    {
+        "id": "1",
+        "name": "The Green Mile",
+        "year": 1999
+    },
+    {
+        "id": "2",
+        "name": "Kill Bill",
+        "year": 2003
+    }
+]
