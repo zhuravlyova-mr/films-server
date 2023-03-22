@@ -60,7 +60,8 @@ async function writeFilmsToDB(req, res, film, filmNumber, result, db) {
     }
     const arrayGenres = genres.split(',');
     let newFilm, addedGenre;
-
+    
+    await db.query(`BEGIN;`);
     newFilm = await db.query(`INSERT INTO film (
         name, year) VALUES ($1, $2) returning *;`, [name, year]);   
     
@@ -73,6 +74,7 @@ async function writeFilmsToDB(req, res, film, filmNumber, result, db) {
         
             result['film' + filmNumber + '_genre' + (i + 1)] = addedGenre.rows;
     }
+    await db.query(`COMMIT;`);
 }
 
 
@@ -83,7 +85,7 @@ async function updateFilmData(req, res, result, db) {
     }
     const arrayGenres = genres.split(',');
     let addedGenre;
-    
+    await db.query(`BEGIN;`);
     let updatedFilm = await db.query(`UPDATE film set name = $1, year = $2 WHERE id = $3 returning *;`,
             [name, year, id]);   
     result.film = updatedFilm.rows;
@@ -102,6 +104,7 @@ async function updateFilmData(req, res, result, db) {
             result['genre_' + (i + 1)] = addedGenre.rows;
         }
     }
+    await db.query(`COMMIT;`);
 }
 
 
@@ -113,7 +116,7 @@ async function deleteFilmFromDB(req, res, result, db) {
     }
     let queryString = queryStringForDeletion('film', id, name);
     let removedFilm;
-
+    await db.query(`BEGIN;`);
     removedFilm = await db.query(queryString);   
     if (removedFilm.rows.length == 0) {
         return;
@@ -123,7 +126,7 @@ async function deleteFilmFromDB(req, res, result, db) {
     queryString = `DELETE FROM film_genres WHERE film_id = ${removedFilm.rows[0].id} returning *;`;
     let removedGenres;
     removedGenres = await db.query(queryString);   
- 
+    await db.query(`COMMIT;`);
     if (removedGenres.rows.length != 0) {
         result.removed_film_genres = removedGenres.rows;
     }
@@ -170,8 +173,9 @@ async function deleteGenreFromDB(req, res, result, db) {
        return;
     }
     let removedGenre;
+
     let queryString = queryStringForDeletion('genres', id, name);
-    
+    await db.query(`BEGIN;`);
     removedGenre = await db.query(queryString);   
     if (removedGenre.rows.length == 0) {
         return;
@@ -180,7 +184,7 @@ async function deleteGenreFromDB(req, res, result, db) {
     
     queryString = `DELETE FROM film_genres WHERE genres_id = ${removedGenre.rows[0].id} returning *;`;
     let removedGenres = await db.query(queryString);   
-    
+    await db.query(`COMMIT;`);
     if (removedGenres.rows.length != 0) {
         result.removed_film_genres = removedGenres.rows;
     }
